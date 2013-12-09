@@ -1,0 +1,24 @@
+<table class="table table-bordered table-condensed table-striped table-hover">
+    <thead>
+    <tr>
+        <th class="span3">Stylist</th>
+        <th class="span5">Date</th>
+        <th class="span2">Time</th>
+        <th class="span2">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="consult in consults">
+        <td ng-click="managePastConsults(consult)">{{consult.stylist}}</td>
+        <td ng-click="managePastConsults(consult)">{{consult.date}}</td>
+        <td>{{ getMyRoles(consult) }}</td>
+        <td>
+            <a ng-click="managePastConsults(consult)">Past Consultations</a>
+            <a ng-click="manageSprints(consult)">Sprints</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+    <tr ng-repeat="consult in consults">
