@@ -1,8 +1,10 @@
 angular.module('app', [
   'ngRoute',
   'projectsinfo',
+  'consultsinfo',
   'dashboard',
   'projects',
+  'consults',
   'admin',
   'services.breadcrumbs',
   'services.i18nNotifications',
@@ -28,6 +30,10 @@ angular.module('app').constant('I18N.MESSAGES', {
   'crud.project.save.success':"A project with id '{{id}}' was saved successfully.",
   'crud.project.remove.success':"A project with id '{{id}}' was removed successfully.",
   'crud.project.save.error':"Something went wrong when saving a project...",
+  'crud.consult.save.success':"A style consultation with id '{{id}}' was saved successfully.",
+  'crud.consult.remove.success':"A style consultation with id '{{id}}' was removed successfully.",
+  'crud.consult.remove.error':"Something went wrong when removing the style consultation with id '{{id}}'.",
+  'crud.consult.save.error':"Something went wrong when saving a style consultation...",
   'login.reason.notAuthorized':"You do not have the necessary access permissions.  Do you want to login as someone else?",
   'login.reason.notAuthenticated':"You must be logged in to access this part of the application.",
   'login.error.invalidCredentials': "Login failed.  Please check your credentials and try again.",
@@ -70,7 +76,7 @@ angular.module('app').controller('HeaderCtrl', ['$scope', '$location', '$route',
     if (security.isAuthenticated()) {
       $location.path('/dashboard');
     } else {
-      $location.path('/projectsinfo');
+      $location.path('/consultsinfo');
     }
   };
 
