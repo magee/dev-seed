@@ -1,23 +1,23 @@
 <div class="well">
-    <form name="form" crud-edit="project">
-        <legend>Project</legend>
+    <form name="form" crud-edit="consult">
+        <legend>Style Consultation</legend>
         <div class="row-fluid">
             <div class="span6">
-                <label>Name</label>
-                <input type="text" name="name" ng-model="project.name" class="span10" required autofocus>
-                <label>Description</label>
-                <textarea rows="10" cols="10" ng-model="project.desc" class="span10">
+                <label>Date</label>
+                <input type="text" name="date" ng-model="consult.date" class="span10" required autofocus>
+                <label>Notes</label>
+                <textarea rows="10" cols="10" ng-model="consult.notes" class="span10">
                 </textarea>
             </div>
             <div class="span6" ng-controller="TeamMembersController">
-                <label>Product Owner</label>
-                <select class="span12" ng-model="project.productOwner"
-                        ng-options="user.$id() as user.getFullName() for user in productOwnerCandidates()" required>
+                <label>Consult Mentor</label>
+                <select class="span12" ng-model="consult.mentor"
+                        ng-options="user.$id() as user.getFullName() for user in mentorCandidates()" required>
                     <option value="">-- choose --</option>
                 </select>
-                <label>Scrum Master</label>
-                <select class="span12" ng-model="project.scrumMaster"
-                        ng-options="user.$id() as user.getFullName() for user in scrumMasterCandidates()" required>
+                <label>Stylist</label>
+                <select class="span12" ng-model="consult.stylist"
+                        ng-options="user.$id() as user.getFullName() for user in stylistCandidates()" required>
                     <option value="">-- choose --</option>
                 </select>
                 <label>Development Team</label>
@@ -29,7 +29,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="userId in project.teamMembers">
+                    <tr ng-repeat="userId in consult.teamMembers">
                         <td>{{usersLookup[userId].getFullName()}}</td>
                         <td>
                             <button class="btn btn-small" ng-click="removeTeamMember(userId)">Remove</button>

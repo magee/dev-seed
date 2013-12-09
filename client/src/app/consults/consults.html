@@ -1,0 +1,26 @@
+<h4>My Style Consultations</h4>
+<div ng-include="'consults/consults-list.tpl.html'">
+</div>
+
+<h4>My Appointments</h4>
+<table class="table table-bordered table-condensed table-striped table-hover">
+    <thead>
+    <tr>
+        <th class="span8">Stylist</th>
+        <th class="span1">Date</th>
+        <th class="span1">Time</th>
+        <th class="span2">Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="consult in consults">
+        <td>{{consult.stylist}}</td>
+        <td>{{consult.date}}</td>
+        <td>{{consult.time}}</td>
+        <td>{{consult.type}}</td>
+    </tr>
+    <tr ng-show="!consults.length">
+        <td colspan="4">No style consultations booked.</td>
+    </tr>
+    </tbody>
+</table>

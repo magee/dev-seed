@@ -42,7 +42,7 @@ angular.module('app').constant('I18N.MESSAGES', {
 
 angular.module('app').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
-  $routeProvider.otherwise({redirectTo:'/projectsinfo'});
+  $routeProvider.otherwise({redirectTo:'/consultsinfo'});
 }]);
 
 angular.module('app').run(['security', function(security) {
