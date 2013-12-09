@@ -9,6 +9,10 @@ angular.module('dashboard', ['resources.projects', 'resources.tasks'])
         //TODO: need to know the current user here
         return Projects.all();
       }],
+      consults:['Consults', function (Consults) {
+        //TODO: need to know the current user here
+        return Consults.all();
+      }],
       tasks:['Tasks', function (Tasks) {
         //TODO: need to know the current user here
         return Tasks.all();
@@ -17,9 +21,14 @@ angular.module('dashboard', ['resources.projects', 'resources.tasks'])
   });
 }])
 
-.controller('DashboardCtrl', ['$scope', '$location', 'projects', 'tasks', function ($scope, $location, projects, tasks) {
+.controller('DashboardCtrl', ['$scope', '$location', 'projects', 'consults', 'tasks', function ($scope, $location, projects, consults, tasks) {
   $scope.projects = projects;
+  $scope.consults = consults;
   $scope.tasks = tasks;
+
+  $scope.managePastConsults = function (consultId) {
+    $location.path('/consults/' + consultId + '/pastconsults');
+  };
 
   $scope.manageBacklog = function (projectId) {
     $location.path('/projects/' + projectId + '/productbacklog');
